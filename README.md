@@ -1,17 +1,19 @@
 # flask-demo
 
-A minimal [Flask](https://flask.palletsprojects.com/en/2.0.x/) app for rapid demos.
+A minimal [Flask](https://flask.palletsprojects.com/en/2.0.x/) app for rapid demos in Python.
 
-Intended for getting Python code live on the Internet in a couple minutes. Not made with any considerations for security, infrastructure, or durability.
+Intended for shipping a live server in a couple minutes. Not made with any considerations for security, infrastructure, or durability.
 
 Includes the following variants, by branch:
 - `main`: a single-page web application, including Bootstrap and HTML templates.
 - `api`: a simple API, for serving JSON responses.
 
+Note: if you don't need the extensibility of a Flask application, an alternative is to deploy your function directly to the serverless Google Cloud Functions. See [this guide](https://cloud.google.com/functions/docs/first-python) for more details.
+
 
 ## Installation
 
-Use Python 3.
+Uses Python 3.
 
 Set up and activate a virtual environment:
 ```
@@ -39,7 +41,7 @@ gunicorn --bind 127.0.0.1:8080 --workers 4 --threads 8 src:app
 
 ## Publish local server via ngrok
 
-The easy way to make your demo public.
+The easy, ephemeral way to deploy the demo.
 
 If you don't have ngrok, download it by following [these instructions](https://ngrok.com/download). The free version is more than enough to get started.
 
@@ -56,7 +58,7 @@ ngrok http -auth="username:password" 8080
 
 ## Deploy via GCP App Engine
 
-The persitent way to make your demo public.
+The slightly fussier, but persistent way to deploy the demo.
 
 If you aren't already set up on GCP, first follow [this guide](https://cloud.google.com/appengine/docs/standard/python3/quickstart) to set up a Project, enable the Cloud Build API, and install the Google Cloud CLI.
 
