@@ -1,0 +1,16 @@
+/*
+ * Custom stylesheet.
+ */
+
+html {
+  font-size: 14px;
+}
+body {
+  padding: 30px;
+}
+
+#footer-break {
+  width: 50%;
+  margin: 8rem auto 2rem;
+  opacity: 10%;
+}

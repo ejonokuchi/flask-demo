@@ -8,28 +8,19 @@ https://flask.palletsprojects.com/en/2.0.x/api/#incoming-request-data
 
 """
 
-from flask import jsonify, request
+from flask import render_template
 
 from src import app
 from src.module import bar, foo
 
 
-@app.route("/", methods=["GET"])
-def get() -> str:
+@app.route("/")
+def home() -> str:
     """
-    Handles a GET request to `/`.
+    Renders the home page.
 
     """
     foo()
-    return "Success!"
-
-
-@app.route("/submit", methods=["POST"])
-def post():
-    """
-    Handles a POST request to `/submit`.
-
-    """
     bar()
-    data = request.get_json()
-    return data if data is not None else jsonify(dict())
+    context = dict()
+    return render_template("home.html", **context)
